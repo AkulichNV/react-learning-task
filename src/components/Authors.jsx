@@ -3,27 +3,42 @@ import { useState, useEffect } from 'react';
 
 import "./Authors.css";
 
-function Authors(props) {
-    const authorsId = props.authorsId;
+function Authors({ authorsId }) {
     const [authors, setAuthors] = useState([]);
   useEffect(() => {
-    fetch('https://github.com/AkulichNV/react-learning-task/blob/dev/src/assets/data/mockedAuthorsList.json')
-      .then((res) => {
+    var responseClone;
+    fetch('./mockedAuthorsList.json', {
+        headers : { 
+          'Accept': 'application/json'
+         }
+    })
+    .then((res) => {
+        responseClone = res.clone();
         return res.json();
       })
-      .then((data) => {
-        console.log(data);
-        setAuthors(data);
+      .then((data) => {     
+        let arr = authorsId.map(element => {
+            for (let i = 0; i < data.length; i++) {
+                if (data[i].id === element) {
+                    element = data[i].name;
+                }
+            }
+            return element;
+        });
+        setAuthors(arr);
+
+    }, function (rejectionReason) { 
+            console.log('Error parsing JSON from response:', rejectionReason, responseClone); 
+            responseClone.text() 
+            .then(function (bodyText) {
+                console.log('Received the following instead of valid JSON:', bodyText);
+            });
       });
   }, []);
-    function authorsData() {
-        const arr = authorsId.forEach((item, i) => { if (item === authors.id) authorsId[i] = authors.name; });
-        return arr.join(", ");
-    }
     return (
         <div>
-            <h4>Authors</h4>
-            <span>{authorsData}</span>
+            <h4>Authors: </h4>
+            <span>{authors.join(', ')}</span>
         </div>
     );
 }

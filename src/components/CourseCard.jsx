@@ -10,19 +10,24 @@ function CourseCard() {
     
   useEffect(() => {
     var responseClone;
-    fetch('https://github.com/AkulichNV/react-learning-task/blob/dev/src/assets/data/mockedCoursesList.json')
+    fetch(`./mockedCoursesList.json`, {
+        headers : { 
+
+          'Accept': 'application/json'
+         }
+    })
       .then((res) => {
         responseClone = res.clone();
         return res.json();
       })
       .then((data) => {
-        console.log(data);
-        setCourses(data.posts);
-    }, function (rejectionReason) { // 3
-            console.log('Error parsing JSON from response:', rejectionReason, responseClone); // 4
-            responseClone.text() // 5
+        // console.log(data);
+        setCourses(data);
+    }, function (rejectionReason) { 
+            console.log('Error parsing JSON from response:', rejectionReason, responseClone); 
+            responseClone.text() 
             .then(function (bodyText) {
-                console.log('Received the following instead of valid JSON:', bodyText); // 6
+                console.log('Received the following instead of valid JSON:', bodyText);
             });
       });
   }, []);
@@ -31,21 +36,23 @@ function CourseCard() {
     return (
         <div>
              {courses.map((course) => (
-            <><div>
+            <div key={course.id}>
+                <div>
                      <h1>{course.title}</h1>
                      <p>{course.description}</p>
                  </div><div>
                          {/* <h4>Authors: </h4>
                          <span>{idAuthorsCourse}</span> */}
                          <Authors authorsId={course.authors}/>
-                         <h4>Duration: </h4>
-                         <span>{course.duration}</span>
-                         <h4>Created: </h4>
-                         <span>{course.creationDate}</span>
+                         <h4>Duration: </h4><span>{course.duration}</span>
+                         
+                         <h4>Created: </h4><span>{course.creationDate}</span>
+                         
                          <Button
                              buttonText="Show course"
                              buttonClick={() => { console.log("Click Show course"); } } />
-                     </div></>
+                     </div>
+            </div>
             ))}
         </div>
     );
