@@ -1,4 +1,4 @@
-import coursesLogo from '../assets/logo.png';
+import coursesLogo from '../assets/images/logo.png';
 
 import "./Logo.css";
 

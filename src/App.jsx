@@ -1,6 +1,7 @@
 import Header from './components/Header'
 
 import './App.css'
+import CourseCard from './components/CourseCard'
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
   return (
     <>
       <Header />
+      <CourseCard />
     </>
   )
 }

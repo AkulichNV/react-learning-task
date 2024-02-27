@@ -11,7 +11,7 @@ function Header() {
                     <h3>Dave</h3>
                     <Button 
                         buttonText="Logout"
-                        buttonClick={() => {console.log("Click button")}}
+                        buttonClick={() => {console.log("Click Logout")}}
                     />
                 </div>
             </div>
