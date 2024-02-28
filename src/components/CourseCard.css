@@ -1,0 +1,28 @@
+.course-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 20px;
+    padding: 20px 20px;
+    border: 1px solid #25479f;
+    border-radius: 8px;
+}
+
+.course-title-description {
+    width: 60%;
+    text-align: left;
+}
+.course-properties {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    align-self: flex-end;
+}
+.course-duration, .course-created {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+

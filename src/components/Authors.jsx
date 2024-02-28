@@ -36,9 +36,9 @@ function Authors({ authorsId }) {
       });
   }, []);
     return (
-        <div>
+        <div className="course-authors">
             <h4>Authors: </h4>
-            <span>{authors.join(', ')}</span>
+            <p className="authors-text">{authors.join(', ')}</p>
         </div>
     );
 }

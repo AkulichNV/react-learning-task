@@ -2,11 +2,15 @@ button {
     border-radius: 8px;
     border: 1px solid #feba25;
     padding: 0.2em 1.2em;
+    width: 170px;
+    height: 30px;
+    margin: 5px 0;
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
     cursor: pointer;
     transition: border-color 0.25s;
+    align-self: center;
   }
   button:hover {
     border-color: #25479f;
