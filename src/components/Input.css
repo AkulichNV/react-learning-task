@@ -1,0 +1,11 @@
+input {
+    border-radius: 8px;
+    border: 1px solid #feba25;
+    padding: 8px 20px 4px 20px;
+    margin-top: 0px;
+    width: 50%;
+    margin-right: 15px; 
+}
+input:hover {
+    border-color: #25479f;
+  }

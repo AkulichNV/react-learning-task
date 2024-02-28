@@ -1,7 +1,7 @@
 import Header from './components/Header'
 
 import './App.css'
-import CourseCard from './components/CourseCard'
+import Courses from './components/Courses'
 
 function App() {
 
@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <Header />
-      <CourseCard />
+      <Courses />
     </>
   )
 }
