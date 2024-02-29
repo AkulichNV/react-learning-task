@@ -1,34 +1,10 @@
 import Button from "./Button";
 import Authors from "./Authors";
-import { useState, useEffect } from 'react';
+import { PropTypes } from "prop-types";
 
 import "./CourseCard.css"
 
-function CourseCard() {
-    const [courses, setCourses] = useState([]);
-    
-    useEffect(() => {
-      var responseClone;
-      fetch(`./mockedCoursesList.json`, {
-          headers : { 
-            'Accept': 'application/json'
-          }
-      })
-        .then((res) => {
-          responseClone = res.clone();
-          return res.json();
-        })
-        .then((data) => {
-          // console.log(data);
-          setCourses(data);
-      }, function (rejectionReason) { 
-              console.log('Error parsing JSON from response:', rejectionReason, responseClone); 
-              responseClone.text() 
-              .then(function (bodyText) {
-                  console.log('Received the following instead of valid JSON:', bodyText);
-              });
-        });
-    }, []);
+function CourseCard({courses}) {
 
     function convertDuration(num) {
       const mm = num % 60;
@@ -63,6 +39,9 @@ function CourseCard() {
         </div>
     );
 
+}
+CourseCard.propTypes = {
+  courses: PropTypes.array.isRequired,
 }
 
 export default CourseCard;

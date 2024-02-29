@@ -1,13 +1,18 @@
 import Button from "./Button";
 import Input from "./Input";
 import { useState } from 'react';
+import { PropTypes } from "prop-types";
 import "./SearchBar.css";
 
-function SearchBar() {
+function SearchBar(props) {
     const [search, setSearch] = useState('');
 
+    const functionHandler = (data) => {
+        props.passSearch(data);   
+    }
+
     return (
-        <form className="search-form">
+        <div className="search-form">
             <Input 
                 labelText=""
                 placeholderText="Enter course name..."
@@ -16,10 +21,14 @@ function SearchBar() {
             />
             <Button 
                 buttonText="Search"
-                buttonClick={() => { console.log("Click Search"); } }
+                buttonClick={() => { functionHandler(search) } }
             />
-        </form>
+        </div>
     );
 }
+
+SearchBar.propTypes = {
+    passSearch: PropTypes.func.isRequired,
+  }
 
 export default SearchBar;
