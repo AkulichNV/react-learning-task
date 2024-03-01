@@ -2,3 +2,7 @@
     width: 70%;
     text-align: left;
 }
+.search-input {
+    width: 50%;
+    margin-right: 15px; 
+}

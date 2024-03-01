@@ -14,6 +14,7 @@ function SearchBar(props) {
     return (
         <div className="search-form">
             <Input 
+                className="search-input"
                 labelText=""
                 type="text"
                 placeholderText="Enter course name..."

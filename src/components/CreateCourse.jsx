@@ -27,7 +27,7 @@ function CreateCourse() {
 
     return (
         <div>
-            <div>
+            <div className="create-course-title">
                 <Input 
                     labelText="Title"
                     placeholderText="Enter title..."
@@ -40,9 +40,10 @@ function CreateCourse() {
                     buttonClick={() => { console.log("Click Create course") } }
                 />
             </div>
-            <label>
+            <label className="create-course-label">
                 Description 
                 <textarea 
+                    className="create-course-textarea"
                     rows="5"
                     minLength="2"
                     placeholder="Enter description" 
@@ -51,9 +52,9 @@ function CreateCourse() {
                 />
 
             </label>
-            <div>
-                <div>
-                    <div>
+            <div className="create-course-block">
+                <div className='create-course-block-add-auth-dur'>
+                    <div className='create-course-block-add-auth'>
                         <h3>Add author</h3>
                         <Input 
                             labelText="Author name"
@@ -67,8 +68,8 @@ function CreateCourse() {
                             buttonClick={() => { console.log("Click Create author") } }
                         />
                     </div>
-                    <div>
-                    <h3>Duration</h3>
+                    <div className='create-course-block-duration'>
+                        <h3>Duration</h3>
                         <Input 
                             labelText="Duration"
                             placeholderText="Enter duration in minutes..."
@@ -81,7 +82,7 @@ function CreateCourse() {
                         </p>
                     </div>
                 </div>
-                <div>
+                <div className='create-course-block-authors'>
                     <h3>Authors</h3>
                     <div>
                         <p>Name Author</p>

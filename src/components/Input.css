@@ -1,11 +1,16 @@
 input {
+    display: block;
     border-radius: 8px;
     border: 1px solid #feba25;
-    padding: 8px 20px 4px 20px;
+    padding: 8px 10px 4px 10px;
     margin-top: 0px;
-    width: 50%;
-    margin-right: 15px; 
+
 }
 input:hover {
     border-color: #25479f;
   }
+
+label {
+    display: inline-block;
+    text-align: left;
+}
