@@ -15,6 +15,7 @@ function SearchBar(props) {
         <div className="search-form">
             <Input 
                 labelText=""
+                type="text"
                 placeholderText="Enter course name..."
                 value={search}
                 onChange={e => setSearch(e.target.value)}

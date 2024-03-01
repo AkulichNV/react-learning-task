@@ -6,6 +6,7 @@ function Input({labelText, placeholderText, onChange}) {
         <label>
             {labelText} 
             <input 
+
                 placeholder={placeholderText} 
                 onChange={onChange}
             />
