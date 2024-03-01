@@ -20,9 +20,16 @@
     width: 30%;
     align-self: flex-end;
 }
-.course-duration, .course-created {
+.course-duration, 
+.course-created,
+.course-authors {
     display: flex;
     align-items: center;
     gap: 5px;
+}
+.authors-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; 
 }
 

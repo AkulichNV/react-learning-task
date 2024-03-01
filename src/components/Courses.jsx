@@ -20,7 +20,7 @@ function Courses() {
           return res.json();
         })
         .then((data) => {
-          // console.log(data);
+          // console.log("Courses" + data);
           setCourses(data);
       }, function (rejectionReason) { 
               console.log('Error parsing JSON from response:', rejectionReason, responseClone); 
@@ -30,6 +30,32 @@ function Courses() {
               });
         });
     }, []);
+
+    const [authors, setAuthors] = useState([]);
+
+    useEffect(() => {
+        var responseClone;
+        fetch('./mockedAuthorsList.json', {
+            headers : { 
+              'Accept': 'application/json'
+            }
+        })
+        .then((res) => {
+            responseClone = res.clone();
+            return res.json();
+          })
+          .then((data) => { 
+            // console.log("Authors:" + data);
+            setAuthors(data);
+
+        }, function (rejectionReason) { 
+                console.log('Error parsing JSON from response:', rejectionReason, responseClone); 
+                responseClone.text() 
+                .then(function (bodyText) {
+                    console.log('Received the following instead of valid JSON:', bodyText);
+                });
+          });
+      }, []);
 
     const [search, setSearch] = useState("");
 
@@ -55,6 +81,7 @@ function Courses() {
             
             <CourseCard 
                 courses={searchFilter(courses)}
+                authors={authors}
             />
         </div>
     );
