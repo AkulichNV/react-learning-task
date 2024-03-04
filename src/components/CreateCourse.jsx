@@ -53,8 +53,8 @@ function CreateCourse() {
 
             </label>
             <div className="create-course-block">
-                <div className='create-course-block-add-auth-dur'>
-                    <div className='create-course-block-add-auth'>
+                <div className='ccb-authors'>
+                    <div className='ccb-create-auth'>
                         <h3>Add author</h3>
                         <Input 
                             labelText="Author name"
@@ -68,7 +68,19 @@ function CreateCourse() {
                             buttonClick={() => { console.log("Click Create author") } }
                         />
                     </div>
-                    <div className='create-course-block-duration'>
+                    <div className='ccb-add-auth'>
+                        <h3>Authors</h3>
+                        <div>
+                            <p>Name Author</p>
+                            <Button 
+                                buttonText="Add author"
+                                buttonClick={() => { console.log("Click Add author") } }
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div className='ccb-dur-auth'>
+                    <div className='ccb-duration'>
                         <h3>Duration</h3>
                         <Input 
                             labelText="Duration"
@@ -78,21 +90,14 @@ function CreateCourse() {
                             onChange={e => setDuration(e.target.value)}
                         />
                         <p>
-                            Duration: {convertDuration(duration)} hours
+                            Duration: <span className='ccb-dur-hh-mm'>{convertDuration(duration)}</span> hours
                         </p>
                     </div>
-                </div>
-                <div className='create-course-block-authors'>
-                    <h3>Authors</h3>
-                    <div>
-                        <p>Name Author</p>
-                        <Button 
-                            buttonText="Add author"
-                            buttonClick={() => { console.log("Click Add author") } }
-                        />
+                    <div className='ccb-auth-list'>
+                        <h3>Course authors</h3>
+                        <p>{createAuthorList()}</p>
                     </div>
-                    <h3>Course authors</h3>
-                    <p>{createAuthorList()}</p>
+                    
                 </div>
             </div>
         </div>

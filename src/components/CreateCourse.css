@@ -3,7 +3,6 @@
     justify-content: space-between;
 }
 .create-course-label {
-
     width: 100%;
     margin: 20px 0;
 }
@@ -17,32 +16,45 @@
 .create-course-block {
     display: flex;
     justify-content: space-between;
-    
-    /* align-content: stretch; */
+    flex-direction: column;
 }
-.create-course-block-add-auth-dur, 
-.create-course-block-authors {
+.ccb-authors,
+.ccb-dur-auth {
+    display: flex;
+    justify-content: space-between;
+}
+.ccb-create-auth {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+
+}
+.ccb-add-auth > div {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.ccb-add-auth,
+.ccb-duration,
+.ccb-auth-list {
     width: 50%;
 }
-.create-course-block-add-auth, 
-.create-course-block-duration,
-.create-course-block-authors {
-    margin: 50px;
-}
-.create-course-block-add-auth > label,
-.create-course-block-add-auth > label > input, 
-.create-course-block-duration > label,
-.create-course-block-duration > label > input {
+.ccb-create-auth > label,
+.ccb-create-auth > label > input, 
+.ccb-duration > label,
+.ccb-duration > label > input {
     width: 100%;
+    margin-bottom: 10px;
 }
 .create-course-block-add-auth > label {
     margin: 10px 0;
 }
-.create-course-block-duration > p {
+.ccb-duration > p {
     margin-top: 20px;
     text-align: left;
     font-size: larger;
 }
-.create-course-block-authors > h3:nth-of-type(2) {
-    margin-top: 50px;
+.ccb-dur-hh-mm {
+    font-size: 1.17em;
+    font-weight: bold;
 }
